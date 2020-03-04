@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-const App = () => {
+import { Link, RouteComponentProps, Router } from '@reach/router'
+
+import { SearchRxjsHook } from './RxjsHooks'
+
+let Home: React.FC<RouteComponentProps> = () => <h1>Demo Time</h1>
+
+let Nav = () => (
+  <nav>
+    <Link to='/'>Home</Link> | <Link to='rxjs-hooks'>Demo1</Link>
+  </nav>
+)
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Nav />
+      <Router>
+        <Home path='/' />
+        <SearchRxjsHook path='rxjs-hooks' />
+      </Router>
+    </>
+  )
 }
-
-export default App;
