@@ -1,14 +1,12 @@
 import React from 'react'
 
-import { RouteComponentProps } from '@reach/router'
-
 import { SearchInput } from './SearchInput'
 import { SearchResult } from './SearchResult'
 import { SearchProvider } from './useSearch'
 
-export const SearchRxjsHook: React.FC<RouteComponentProps> = () => (
+export const RxjsHook = () => (
   <SearchProvider>
-    <h1>context api with rxjs-hooks</h1>
+    <h3>Context API with Rxjs-hooks</h3>
     <SearchInput />
     <SearchResult />
   </SearchProvider>

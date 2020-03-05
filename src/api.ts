@@ -25,6 +25,17 @@ export enum Cors {
 
 export const baseUrl = 'https://api.publicapis.org'
 
+export const getData = async ({ title }: { title: string }) => {
+  try {
+    const searchParams = new URLSearchParams({ title }).toString()
+    const res = await fetch(`${baseUrl}/entries?${searchParams}`)
+    const json: ApiResponse = await res.json()
+    return json.entries
+  } catch (e) {
+    throw e
+  }
+}
+
 export const getData$ = ({ title }: { title: string }) => {
   const searchParams = new URLSearchParams({ title }).toString()
   return ajax.getJSON<ApiResponse>(`${baseUrl}/entries?${searchParams}`).pipe(
