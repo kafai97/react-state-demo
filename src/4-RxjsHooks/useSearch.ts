@@ -5,7 +5,7 @@ import { createContainer } from 'unstated-next'
 
 import { getData$ } from '../api'
 
-export const { useContainer: useSearch, Provider: SearchProvider } = createContainer(() => {
+export const SearchContainer = createContainer(() => {
   const [inputCallback, value] = useEventCallback(
     (event$: Observable<React.ChangeEvent<HTMLInputElement>>) =>
       event$.pipe(
@@ -13,7 +13,7 @@ export const { useContainer: useSearch, Provider: SearchProvider } = createConta
         filter(val => val !== ''),
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap(keyword => getData$({ title: keyword })),
+        switchMap(title => getData$({ title })),
       ),
     [],
   )

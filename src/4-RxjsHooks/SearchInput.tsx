@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { useSearch } from './useSearch'
+import { SearchContainer } from './useSearch'
 
 export const SearchInput = () => {
-  const { inputCallback } = useSearch()
+  const { inputCallback } = SearchContainer.useContainer()
 
   return <input type='text' onChange={inputCallback} />
 }

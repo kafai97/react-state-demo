@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { useSearch } from './useSearch'
+import { SearchContainer } from './useSearch'
 
 export const SearchResult = () => {
-  const { value } = useSearch()
+  const { value } = SearchContainer.useContainer()
 
   return <pre>{JSON.stringify(value, null, 2)}</pre>
 }
