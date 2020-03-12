@@ -1,9 +1,10 @@
 import React from 'react'
-import { RxjsHook } from './4-RxjsHooks'
-import { Redux } from './1-Redux'
-import { UnstatedNext } from './2-Unstated-next'
+import { RxjsHook } from './RxjsHooks'
+import { Redux } from './Redux'
+import { UnstatedNext } from './Unstated-next'
 import { Link, Switch, Route } from 'react-router-dom'
-import { Reto } from './3-Reto'
+import { Reto } from './Reto'
+import { ReduxObservable } from './ReduxObservable'
 
 interface IRoute {
   path: string
@@ -35,7 +36,7 @@ const routes: IRoute[] = [
   },
   {
     path: '/redux-observable',
-    component: () => <h3>TODO</h3>,
+    component: ReduxObservable,
   },
 ]
 
@@ -43,7 +44,7 @@ export const Nav = () => (
   <nav>
     {routes.map((route, i) => (
       <Link to={route.path} key={i}>
-        |-{i ? `Demo${i}` : 'Home'}-|
+        {i ? `Demo${i}` : 'Home'}
       </Link>
     ))}
   </nav>

@@ -38,8 +38,7 @@ export const getData = async ({ title }: { title: string }) => {
 
 export const getData$ = ({ title }: { title: string }) => {
   const searchParams = new URLSearchParams({ title }).toString()
-  return ajax.getJSON<ApiResponse>(`${baseUrl}/entries?${searchParams}`).pipe(
-    map(res => res.entries),
-    catchError((error: AjaxError) => of({ error })),
-  )
+  return ajax
+    .getJSON<ApiResponse>(`${baseUrl}/entries?${searchParams}`)
+    .pipe(map(res => res.entries))
 }

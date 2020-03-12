@@ -2,7 +2,9 @@ import { connect, useSelector } from 'react-redux'
 import React, { Component } from 'react'
 import { RootState } from './store'
 
-class MyCounter extends Component<ReturnType<typeof mapStateToProps>> {
+type Props = ReturnType<typeof mapStateToProps>
+
+class MyCounter extends Component<Props> {
   render() {
     return <h3>{this.props.count}</h3>
   }
@@ -16,7 +18,10 @@ const mapStateToProps = (state: RootState) => {
 
 export const Counter = connect(mapStateToProps)(MyCounter)
 
-// export const Counter = () => {
-//   const count = useSelector<RootState>(state => state.count)
-//   return <h1>{count as number}</h1>
-// }
+/**
+ * Funtional Component with Hooks
+ */
+export const CounterFC = () => {
+  const count = useSelector<RootState>(state => state.count)
+  return <h1>{count as number}</h1>
+}

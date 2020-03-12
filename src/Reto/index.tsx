@@ -5,7 +5,7 @@ import { SearchResult } from './SearchResult'
 import { Provider } from 'reto'
 
 export const Reto = () => (
-  <Provider of={SearchStore}>
+  <Provider of={SearchStore} memo>
     <h3>Reto</h3>
     <SearchInput />
     <SearchResult />
