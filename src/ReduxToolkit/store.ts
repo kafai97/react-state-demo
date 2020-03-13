@@ -1,34 +1,24 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
+import { createSlice, configureStore, combineReducers, PayloadAction } from '@reduxjs/toolkit'
 
-const counterSlice = createSlice({
+// store/count.store.ts
+const countStore = createSlice({
   name: 'counter',
   initialState: 0,
   reducers: {
-    increment: state => state + 1,
-    decrement: state => state - 1,
+    increment: (state, action: PayloadAction<number>) => state + action.payload,
+    decrement: (state, action: PayloadAction<number>) => state - action.payload,
   },
 })
 
-const todosSlice = createSlice({
-  name: 'todos',
-  initialState: [{ id: 0, text: 'init', completed: false }],
-  reducers: {
-    addTodo(state, action) {
-      const { id, text } = action.payload
-      state.push({ id, text, completed: false })
-    },
-    toggleTodo(state, action) {
-      const todo = state.find(todo => todo.id === action.payload)
-      if (todo) {
-        todo.completed = !todo.completed
-      }
-    },
-  },
-})
+export const { actions: counterActions, reducer: counterRducer } = countStore
 
-export const { actions, reducer } = counterSlice
-export const { increment, decrement } = actions
+// store/index.ts
+const rootReducer = combineReducers({
+  count: counterRducer,
+})
 
 export const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: rootReducer,
 })
+
+export type RootState = ReturnType<typeof rootReducer>

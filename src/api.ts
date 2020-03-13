@@ -1,6 +1,5 @@
-import { of } from 'rxjs'
-import { ajax, AjaxError } from 'rxjs/ajax'
-import { catchError, map } from 'rxjs/operators'
+import { ajax } from 'rxjs/ajax'
+import { map } from 'rxjs/operators'
 
 export interface ApiResponse {
   count: number
@@ -12,15 +11,9 @@ export interface Entry {
   Description: string
   Auth: string
   HTTPS: boolean
-  Cors: Cors
+  Cors: string
   Link: string
   Category: string
-}
-
-export enum Cors {
-  No = 'no',
-  Unknown = 'unknown',
-  Yes = 'yes',
 }
 
 export const baseUrl = 'https://api.publicapis.org'

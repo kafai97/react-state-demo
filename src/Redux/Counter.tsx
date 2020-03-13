@@ -22,6 +22,6 @@ export const Counter = connect(mapStateToProps)(MyCounter)
  * Funtional Component with Hooks
  */
 export const CounterFC = () => {
-  const count = useSelector<RootState>(state => state.count)
-  return <h1>{count as number}</h1>
+  const count = useSelector<RootState, number>(state => state.count)
+  return <h3>{count}</h3>
 }

@@ -26,7 +26,7 @@ export const DoCount = connect(null, mapDispatchToProps)(DoCountComponent)
  * Funtional Component with Hooks
  */
 export const DoCountFC = () => {
-  const dispatch: AppDispatch = useDispatch()
+  const dispatch = useDispatch()
 
   const plusOne = () => dispatch(increment(1))
   const minusOne = () => dispatch(decrement(1))

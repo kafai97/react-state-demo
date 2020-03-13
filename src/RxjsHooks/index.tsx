@@ -6,7 +6,7 @@ import { SearchContainer } from './useSearch'
 
 export const RxjsHook = () => (
   <SearchContainer.Provider>
-    <h3>Context API with Rxjs-hooks</h3>
+    <h3>Rxjs-hooks</h3>
     <SearchInput />
     <SearchResult />
   </SearchContainer.Provider>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { getData, Entry } from '../api'
 import { createContainer } from 'unstated-next'
 
-const useSearch = (initialState = [] as Entry[]) => {
+const useSearch = (initialState: Entry[] = []) => {
   const [searchResult, setSearchResult] = useState(initialState)
 
   const doSearch = async (title: string) => {
