@@ -1,9 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../store'
-import { searchStart } from '../store/reducers'
+import { searchStore } from '../store/search.store'
 
 export const SearchInput = () => {
-  const dispatch: AppDispatch = useDispatch()
-  return <input type='text' onChange={e => dispatch(searchStart(e.target.value))} />
+  const dispatch = useDispatch()
+
+  return (
+    <input type='text' onChange={e => dispatch(searchStore.actions.searchStart(e.target.value))} />
+  )
 }

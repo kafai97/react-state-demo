@@ -3,12 +3,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { Entry } from '../../api'
 
-interface State {
-  data: Entry[]
-}
-
 export const SearchResult = () => {
-  const { data } = useSelector<RootState>(state => state.search) as State
+  const data = useSelector<RootState, Entry[] | Error>(state => state.search)
 
   return <pre>{JSON.stringify(data, null, 2)}</pre>
 }

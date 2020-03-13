@@ -1,7 +1,7 @@
 import { createSlice, configureStore, combineReducers, PayloadAction } from '@reduxjs/toolkit'
 
 // store/count.store.ts
-const countStore = createSlice({
+export const countStore = createSlice({
   name: 'counter',
   initialState: 0,
   reducers: {
@@ -10,11 +10,9 @@ const countStore = createSlice({
   },
 })
 
-export const { actions: counterActions, reducer: counterRducer } = countStore
-
 // store/index.ts
 const rootReducer = combineReducers({
-  count: counterRducer,
+  count: countStore.reducer,
 })
 
 export const store = configureStore({

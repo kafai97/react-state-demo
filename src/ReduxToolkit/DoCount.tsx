@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux'
 import React from 'react'
-import { counterActions } from './store'
+import { countStore } from './store'
 
 export const DoCount = () => {
   const dispatch = useDispatch()
 
-  const plusOne = () => dispatch(counterActions.increment(1))
-  const minusOne = () => dispatch(counterActions.decrement(1))
+  const plusOne = () => dispatch(countStore.actions.increment(1))
+  const minusOne = () => dispatch(countStore.actions.decrement(1))
 
   return (
     <>

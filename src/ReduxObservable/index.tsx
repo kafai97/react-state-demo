@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Provider } from 'react-redux'
-import { store } from './store'
 import { SearchInput } from './components/SearchInput'
 import { SearchResult } from './components/SearchResult'
+import { store } from './store'
 
 export const ReduxObservable = () => (
   <Provider store={store}>
