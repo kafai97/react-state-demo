@@ -1,4 +1,4 @@
-# 13/3 Pinnacle Sharing by Fai
+# 13/3 Pinnacle Sharing
 
 ## Start Demo
 
