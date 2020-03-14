@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit'
 import { Entry, getData$ } from '../../api'
-import { ActionsObservable, ofType } from 'redux-observable'
+import { ofType, Epic } from 'redux-observable'
 import {
   map,
   filter,
@@ -22,7 +22,7 @@ export const searchStore = createSlice({
   },
 })
 
-export const searchEpic = (action$: ActionsObservable<Action>) =>
+export const searchEpic: Epic = action$ =>
   action$.pipe(
     ofType<Action, PayloadAction<string>>(searchStore.actions.searchStart.type),
     map(action => action.payload),
